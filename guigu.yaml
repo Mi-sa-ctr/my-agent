@@ -1,0 +1,22 @@
+proxies:
+  - name: "硅谷"
+    type: ss
+    server: 49.51.33.251
+    port: 58623
+    cipher: chacha20-ietf-poly1305
+    password: "CZ5cz1ZDFBFbcxvXaBLB"
+    udp: true
+
+proxy-groups:
+  - name: "🚀 手动选择"
+    type: select
+    proxies:
+      - "硅谷"
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - MATCH,🚀 手动选择
